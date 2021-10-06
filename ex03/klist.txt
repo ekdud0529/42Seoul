@@ -1,1 +1,2 @@
-daykim@42SEOUL.KR
+Name                Cache name                                 Expires
+daykim@42SEOUL.KR   API:0CC7C9FB-A30B-4C07-912F-AF8BE089BF48   Oct  5 00:32:54 2021
