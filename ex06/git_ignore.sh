@@ -1,1 +1,1 @@
-git status --ignored
+find . -type -f | git status --ignored
