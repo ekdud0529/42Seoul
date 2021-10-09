@@ -1,1 +1,1 @@
-find . -type -f | git status --ignored
+git ls-files --others -- ignored --exclude-standard

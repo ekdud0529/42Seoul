@@ -1,2 +1,6 @@
-Name                Cache name                                 Expires
-daykim@42SEOUL.KR   API:0CC7C9FB-A30B-4C07-912F-AF8BE089BF48   Oct  5 00:32:54 2021
+Credentials cache: API:DF39A840-EDF2-496A-9B0B-22CF3111CF3E
+        Principal: daykim@42SEOUL.KR
+
+  Issued                Expires               Principal
+Oct  9 16:11:15 2021  Oct 10 02:11:15 2021  krbtgt/42SEOUL.KR@42SEOUL.KR
+Oct  9 16:11:17 2021  Oct 10 02:11:15 2021  HTTP/student-storage.42seoul.kr@42SEOUL.KR
