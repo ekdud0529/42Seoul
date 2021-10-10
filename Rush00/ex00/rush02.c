@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rush02.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/10 20:18:13 by daykim            #+#    #+#             */
+/*   Updated: 2021/10/10 20:18:16 by daykim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 extern void	ft_putchar(char c, int repetition);
 
 void	rush(int x, int y)
@@ -6,7 +18,7 @@ void	rush(int x, int y)
 	int	row;
 
 	col = 1;
-	while (col <= y)
+	while (col <= y && x > 0)
 	{
 		row = 1;
 		while (row <= x)
