@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 16:23:46 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/12 16:26:58 by daykim           ###   ########.fr       */
+/*   Created: 2021/10/12 16:28:01 by daykim            #+#    #+#             */
+/*   Updated: 2021/10/12 16:29:04 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_lowercase(char	*str)
+int	ft_str_is_uppercase(char	*str)
 {
 	while (*str)
 	{
-		if (97 > *str || 122 < *str)
+		if (65 > *str || 90 < *str)
 			return (0);
 		str++;
 	}
