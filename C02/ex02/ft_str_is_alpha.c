@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 15:46:21 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/12 16:17:14 by daykim           ###   ########.fr       */
+/*   Created: 2021/10/12 16:02:04 by daykim            #+#    #+#             */
+/*   Updated: 2021/10/12 16:16:49 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int	ft_str_is_alpha(char	*str)
 {
-	char	*cpy;
-
-	cpy = dest;
-	while (*src && n--)
+	while (*str)
 	{
-		*cpy = *src;
-		cpy++;
-		src++;
+		if ((97 > *str || *str > 122) && (65 > *str || *str > 90))
+			return (0);
+		str++;
 	}
-	*cpy = '\0';
-	return (dest);
+	return (1);
 }
