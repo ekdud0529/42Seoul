@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 16:36:17 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/14 16:33:14 by daykim           ###   ########.fr       */
+/*   Created: 2021/10/14 14:51:36 by daykim            #+#    #+#             */
+/*   Updated: 2021/10/14 15:02:56 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_printable(char *str)
+unsigned int	ft_strlcpy(char	*dest, char	*src, unsigned int	size)
 {
-	while (*str)
+	char	*origin;
+	int		cnt;
+
+	cnt = 0;
+	origin = src;
+	while (*src)
 	{
-		if (0 <= *str || *str < 32 || *str == 127)
-			return (0);
-		str++;
+		cnt++;
+		src++;
 	}
-	return (1);
+	while (size--)
+	{
+		*dest = *origin;
+		origin++;
+		dest++;
+	}
+	*dest = '\0';
+	return (cnt);
 }
