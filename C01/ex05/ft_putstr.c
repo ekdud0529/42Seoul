@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 13:02:06 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/12 13:28:20 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/16 14:17:36 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_putstr(char	*str)
 	ind = 0;
 	while (*str)
 	{
-		write(1, &*(str), 1);
+		write(1, str, 1);
 		str = (str + 1);
 	}
 }
