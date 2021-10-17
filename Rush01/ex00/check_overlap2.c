@@ -1,10 +1,9 @@
 void    reset(int   *num)
 {
     int ind;
-
-  ind = 0;
-  while(ind<4)
-  num[ind++] = 0;
+    ind = 0;
+    while(ind<4)
+        num[ind++] = 0;
 }
 
 void    check_row(int   table[][4], int *check)
