@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/16 14:34:03 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/19 11:33:25 by daykim           ###   ########.fr       */
+/*   Created: 2021/10/19 11:36:36 by daykim            #+#    #+#             */
+/*   Updated: 2021/10/19 11:40:19 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char	*s1, char	*s2)
+char	*ft_strcat(char	*dest, char	*src)
 {
-	while (*s1 && *s2)
+	char	*d;
+
+	d = dest;
+	while (*d)
+		d++;
+	while (*src)
 	{
-		if (*s1 != *s2)
-			return (*s1 - *s2);
-		s1++;
-		s2++;
+		*d = *src;
+		d++;
+		src++;
 	}
-	return (*s1 - *s2);
+	*d = '\0';
+	return (dest);
 }

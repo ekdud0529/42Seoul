@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/16 14:34:03 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/19 11:33:25 by daykim           ###   ########.fr       */
+/*   Created: 2021/10/19 11:44:03 by daykim            #+#    #+#             */
+/*   Updated: 2021/10/19 13:23:51 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char	*s1, char	*s2)
+char	*ft_strstr(char	*str, char	*to_find)
 {
-	while (*s1 && *s2)
+	char	*seek;
+	char	*src;
+
+	seek = to_find;
+	while (*str)
 	{
-		if (*s1 != *s2)
-			return (*s1 - *s2);
-		s1++;
-		s2++;
+		if (*str == *seek)
+		{
+			src = str;
+			while (*seek && *src)
+			{
+				if (*src != *seek)
+					break ;
+				seek++;
+				src++;
+			}
+			if (!(*seek))
+				return (str);
+		}
+		str++;
+		seek = to_find;
 	}
-	return (*s1 - *s2);
+	return (0);
 }
