@@ -6,11 +6,10 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 16:51:00 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/20 12:05:17 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/20 12:06:45 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 int	ft_atoi(char	*str)
 {
 	int	sign;
