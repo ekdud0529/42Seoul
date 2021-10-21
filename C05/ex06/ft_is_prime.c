@@ -6,13 +6,13 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 13:38:23 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/21 13:43:36 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/21 15:16:27 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_is_prime(int	nb)
 {
-	int	sqrt;
+	long long	sqrt;
 
 	sqrt = 2;
 	if (nb <= 1)

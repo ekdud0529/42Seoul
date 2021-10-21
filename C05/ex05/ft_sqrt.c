@@ -6,13 +6,13 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 13:27:51 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/21 13:37:59 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/21 15:15:25 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_sqrt(int	nb)
 {
-	int	sqrt;
+	long long	sqrt;
 
 	sqrt = 1;
 	while (nb > 0 && sqrt * sqrt <= nb)
