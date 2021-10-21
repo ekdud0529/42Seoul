@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 13:24:42 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/19 14:04:49 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/21 17:19:00 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ unsigned int	ft_strlcat(char	*dest, char	*src, unsigned int	size)
 
 	dest_len = get_len(dest);
 	src_len = get_len(src);
-	printf("%d %d\n", dest_len, src_len);
 	while (*dest)
 		dest++;
 	if (size <= dest_len)
