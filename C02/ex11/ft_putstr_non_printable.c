@@ -34,5 +34,6 @@ void	ft_putstr_non_printable(char	*str)
 		else
 			write(1, strr, 1);
 		strr++;
-	}	
+	}
+	write(1, "\n", 1);
 }
