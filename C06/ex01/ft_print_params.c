@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 13:48:31 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/23 14:04:43 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/23 15:31:03 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char *argv[])
 	char	*str;
 
 	ind = 1;
-	if (ind < argc)
+	while (ind < argc)
 	{
 		str = argv[ind];
 		while (*str)
