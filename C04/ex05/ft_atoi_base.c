@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 16:51:00 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/20 12:06:45 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/23 14:08:34 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ int	ft_atoi_base(char	*str, char	*base)
 	num = ft_atoi(str);
 	if (num != 0 && check_char(base))
 	{
-		printf("%d\n", num);
 		ind = ft_putnbr_base(num, base, change);
 		num = 0;
 		if (ind < 0)
