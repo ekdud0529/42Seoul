@@ -5,50 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/19 16:51:00 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/23 14:08:34 by daykim           ###   ########.fr       */
+/*   Created: 2021/10/23 14:17:12 by daykim            #+#    #+#             */
+/*   Updated: 2021/10/23 14:54:36 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int	ft_atoi(char	*str)
-{
-	int	sign;
-	int	num;
-
-	num = 0;
-	sign = 1;
-	while (*str)
-	{
-		if (*str == '-')
-			sign *= -1;
-		if (*str != ' ' && *str != '+' && *str != '-'
-			&& ('0' > *str || '9' < *str))
-			break ;
-		if ('0' <= *str && *str <= '9')
-			num = num * 10 + (*str - '0');
-		str++;
-	}
-	num *= sign;
-	return (num);
-}
-
-int	check_char(char *base)
-{
-	char	*check;
-
-	while (*base)
-	{
-		check = base + 1;
-		while (*check)
-		{
-			if (*base == *check || *base == '+' || *base == '-')
-				return (0);
-			check++;
-		}
-		base++;
-	}
-	return (1);
-}
 
 int	get_base_len(char *base)
 {
@@ -63,55 +23,66 @@ int	get_base_len(char *base)
 	return (len);
 }
 
-int	ft_putnbr_base(int	num, char *base, char	*change)
+int	ft_atoi(char	*str)
 {
-	int	base_len;
-	int	ind;
-	int	sign;
+	int			sign;
+	long long	num;
 
-	ind = 0;
+	num = 0;
 	sign = 1;
-	base_len = get_base_len(base);
-	if (base_len > 1 && check_char(base))
+	while (*str == ' ')
 	{
-		if (num < 0)
-		{
-			change[ind++] = base[(num % base_len)*(-1)];
-			num = (num / base_len) * -1;
-			sign *= -1;
-		}
-		while (num)
-		{
-			change[ind++] = base[num % base_len];
-			num /= base_len;
-		}
+		str++;
 	}
-	return (ind * sign);
+	while (*str == '+' || *str == '-')
+	{
+		if (*str == '-')
+			sign *= -1;
+		str++;
+	}
+	while ('0' <= *str && *str <= '9')
+	{
+		num = num * 10 + (*str - '0');
+		str++;
+	}
+	num *= sign;
+	return ((int)num);
+}
+
+int	get_power(int	num, int	power)
+{
+	int	n;
+
+	n = 1;
+	while (power--)
+		n *= num;
+	return (n);
 }
 
 int	ft_atoi_base(char	*str, char	*base)
 {
-	char	change[11];
-	int		num;
-	int		ind;
-	int		sign;
+	int			len;
+	int			sign;
+	int			power;
+	long long	num;
+	long long	n;
 
-	sign = 1;
+	n = 0;
 	num = ft_atoi(str);
-	if (num != 0 && check_char(base))
+	len = get_base_len(base);
+	sign = 1;
+	power = 0;
+	if (num < 0)
 	{
-		ind = ft_putnbr_base(num, base, change);
-		num = 0;
-		if (ind < 0)
-		{
-			ind *= -1;
-			sign = -1;
-		}
-		while (ind--)
-		{
-			num = num * 10 + (change[ind] - '0');
-		}
-		num *= sign;
+		sign = -1;
+		num *= -1;
 	}
-	return (num);
+	while (num)
+	{
+		n += (num % 10) * get_power(len, power);
+		num /= 10;
+		power++;
+	}
+	n *= sign;
+	return ((int)n);
 }

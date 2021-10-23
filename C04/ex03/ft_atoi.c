@@ -6,14 +6,14 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:30:58 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/23 13:42:41 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/23 14:55:02 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(char	*str)
 {
-	int	sign;
-	int	num;
+	int			sign;
+	long long	num;
 
 	num = 0;
 	sign = 1;
@@ -33,5 +33,5 @@ int	ft_atoi(char	*str)
 		str++;
 	}
 	num *= sign;
-	return (num);
+	return ((int)num);
 }
