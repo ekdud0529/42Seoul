@@ -6,17 +6,20 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:40:11 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/12 16:47:50 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/20 11:16:44 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strupcase(char *str)
 {
+	char	*src;
+
+	src = str;
 	while (*str)
 	{
-		if (97 <= *str || *str < 122)
+		if ('a' <= *str && *str <= 'z')
 			*str = *str - 32;
 		str++;
 	}
-	return (str);
+	return (src);
 }

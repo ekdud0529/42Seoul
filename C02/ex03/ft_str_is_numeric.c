@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:18:09 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/12 16:22:55 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/18 15:43:21 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@ int	ft_str_is_numeric(char	*str)
 {
 	while (*str)
 	{
-		if (48 > *str || *str > 57)
+		if ('0' > *str || *str > '9')
 			return (0);
 		str++;
 	}

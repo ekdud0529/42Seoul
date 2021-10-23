@@ -6,33 +6,33 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 13:52:34 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/14 14:32:24 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/23 10:33:43 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strcapitalize(char	*str)
 {
 	char	*cmp;
+	char	*src;
 
-	if (97 <= *str && *str <= 122)
-	{
-		*str = *str - 32;
-		str++;
-	}
+	src = str;
 	while (*str)
 	{
-		if (97 <= *str && *str <= 122)
+		if ('a' <= *str && *str <= 'z')
 		{
 			cmp = str - 1;
-			if ((32 <= *cmp && *cmp <= 47)
-				|| (58 <= *cmp && *cmp <= 64)
-				|| (91 <= *cmp && *cmp <= 96)
-				|| (123 <= *cmp && *cmp <= 126))
-			{
+			if (!('a' <= *cmp && *cmp <= 'z') && !('A' <= *cmp && *cmp <= 'Z')
+				&& !('0' <= *cmp && *cmp <= '9'))
 				*str = *str - 32;
-			}
+		}
+		if ('A' <= *str && *str <= 'Z')
+		{
+			cmp = str - 1;
+			if (('a' <= *cmp && *cmp <= 'z') || ('A' <= *cmp && *cmp <= 'Z')
+				|| ('0' <= *cmp && *cmp <= '9'))
+				*str = *str + 32;
 		}
 		str++;
 	}
-	return (str);
+	return (src);
 }
