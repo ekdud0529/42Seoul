@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 20:49:51 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/24 23:36:04 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/25 00:46:37 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ long long	get_power(int base, int power)
 	long long	pow;
 
 	pow = 1;
-	while (p--)
+	while (power--)
 	{
 		pow *= base;
 	}
@@ -61,7 +61,7 @@ long long	mk_num(int base_len, char *str, char *base)
 	int			str_len;
 
 	str_len = 0;
-	while (str[str_len])
+	while (str[str_len] && check_num(str[str_len], base))
 		str_len++;
 	num = 0;
 	while (*str)
