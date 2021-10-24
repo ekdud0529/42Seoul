@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 20:49:51 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/24 22:50:37 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/24 22:56:55 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ int	check_valid(char *base, char *str)
 			return (0);
 		while (*check)
 		{
-			if (*base == *check || *base == '+' || *base == '-')
+			if (*base == *check)
 				return (0);
 			check++;
 		}
-				base++;
+		base++;
 	}
 	while (*str)
 	{
@@ -60,8 +60,9 @@ int	check_valid(char *base, char *str)
 		{
 			if (*str == base[i])
 				break ;
+			i++;
 		}
-		if (base[i] != '\0')
+		if (base[i] == '\0')
 			return (0);
 		str++;
 	}	
