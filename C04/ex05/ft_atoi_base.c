@@ -6,20 +6,20 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 20:49:51 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/24 23:20:48 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/24 23:36:04 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 long long	get_power(int base, int power)
 {
-	long long	get_power;
+	long long	pow;
 
-	get_power = 1;
-	while (power--)
+	pow = 1;
+	while (p--)
 	{
-		get_power *= base;
+		pow *= base;
 	}
-	return (get_power);
+	return (pow);
 }
 
 int	check_valid(char *base)
@@ -30,7 +30,7 @@ int	check_valid(char *base)
 	{
 		check = base + 1;
 		if (*base == '+' || *base == '-' || *base == ' '
-			|| (9 <= *base && *base <=13))
+			|| (9 <= *base && *base <= 13))
 			return (0);
 		while (*check)
 		{
@@ -58,30 +58,26 @@ long long	mk_num(int base_len, char *str, char *base)
 {
 	long long	num;
 	int			index;
-	long long	power;
 	int			str_len;
 
 	str_len = 0;
 	while (str[str_len])
 		str_len++;
-	str_len--;
 	num = 0;
 	while (*str)
 	{
 		index = 0;
 		if (!check_num(*str, base))
 			return (num);
-		while (check_num(*str, base) && base[index])
+		while (base[index])
 		{
 			if (base[index] == *str)
 			{
-				power = get_power(base_len, str_len);
-				num += (index*power);
+				num += (index * get_power(base_len, --str_len));
 				break ;
 			}
 			index++;
 		}
-		str_len--;
 		str++;
 	}
 	return (num);
@@ -89,15 +85,15 @@ long long	mk_num(int base_len, char *str, char *base)
 
 int	ft_atoi_base(char *str, char *base)
 {
-	int		base_len;
-	int		sign;
-	long long num;
+	int			base_len;
+	int			sign;
+	long long	num;
 
 	base_len = 0;
 	while (base[base_len])
 		base_len++;
 	if (base_len < 2 || !check_valid(base) || str[0] == '\0')
-			return (0);
+		return (0);
 	sign = 1;
 	while ((9 <= *str && *str <= 13) || *str == ' ')
 		str++;
