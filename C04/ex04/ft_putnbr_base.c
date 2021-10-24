@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:50:54 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/23 14:43:21 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/24 17:07:50 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	check_char(char *base)
 
 	while (*base)
 	{
+		if (*base == '-' || *base == '+')
+			return (0);
 		check = base + 1;
 		while (*check)
 		{
@@ -44,27 +46,26 @@ int	check_char(char *base)
 
 void	ft_putnbr_base(int	nbr, char	*base)
 {
-	char	change[11];
-	int		base_len;
-	int		ind;
-	int		num;
+	char		change[20];
+	int			base_len;
+	int			ind;
+	long long	num;
 
 	ind = 0;
 	num = nbr;
 	base_len = get_base_len(base);
 	if (base_len > 1 && check_char(base))
 	{
-		if (nbr < 0)
-		{
-			change[ind++] = base[(nbr % base_len)*(-1)];
-			nbr = (nbr / base_len) * -1;
-		}
-		while (nbr)
-		{
-			change[ind++] = base[nbr % base_len];
-			nbr /= base_len;
-		}
 		if (num < 0)
+			num *= -1;
+		if (num == 0)
+			change[ind++] = base[num];
+		while (num)
+		{
+			change[ind++] = base[num % base_len];
+			num /= base_len;
+		}
+		if (nbr < 0)
 			change[ind++] = '-';
 		while (ind--)
 			write(1, &change[ind], 1);

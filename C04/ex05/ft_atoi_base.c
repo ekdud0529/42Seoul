@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 14:17:12 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/23 14:54:36 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/24 17:37:25 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,30 +23,24 @@ int	get_base_len(char *base)
 	return (len);
 }
 
-int	ft_atoi(char	*str)
+int	check_char(char *base)
 {
-	int			sign;
-	long long	num;
+	char	*check;
 
-	num = 0;
-	sign = 1;
-	while (*str == ' ')
+	while (*base)
 	{
-		str++;
+		check = base + 1;
+		if (*base == '+' || *base == '-')
+			return (0);
+		while (*check)
+		{
+			if (*base == *check || *base == '+' || *base == '-')
+				return (0);
+			check++;
+		}
+		base++;
 	}
-	while (*str == '+' || *str == '-')
-	{
-		if (*str == '-')
-			sign *= -1;
-		str++;
-	}
-	while ('0' <= *str && *str <= '9')
-	{
-		num = num * 10 + (*str - '0');
-		str++;
-	}
-	num *= sign;
-	return ((int)num);
+	return (1);
 }
 
 int	get_power(int	num, int	power)
@@ -59,30 +53,26 @@ int	get_power(int	num, int	power)
 	return (n);
 }
 
+int	check_num(int len, char *base, char num)
+{
+	while (len)
+	{
+		if (num == base[len])
+			break;
+		len--;
+	}
+	return (len);
+}
+
 int	ft_atoi_base(char	*str, char	*base)
 {
-	int			len;
-	int			sign;
 	int			power;
-	long long	num;
 	long long	n;
 
-	n = 0;
-	num = ft_atoi(str);
-	len = get_base_len(base);
-	sign = 1;
-	power = 0;
-	if (num < 0)
+	power = get_base_len(base);
+	if (check_char(base) && power > 1)
 	{
-		sign = -1;
-		num *= -1;
+		
 	}
-	while (num)
-	{
-		n += (num % 10) * get_power(len, power);
-		num /= 10;
-		power++;
-	}
-	n *= sign;
 	return ((int)n);
 }
