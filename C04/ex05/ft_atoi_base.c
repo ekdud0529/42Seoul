@@ -5,25 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/23 14:17:12 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/24 17:37:25 by daykim           ###   ########.fr       */
+/*   Created: 2021/10/24 20:49:51 by daykim            #+#    #+#             */
+/*   Updated: 2021/10/24 22:18:09 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	get_base_len(char *base)
+int	get_len(char *str)
 {
 	int	len;
 
 	len = 0;
-	while (*base)
+	while (*str)
 	{
 		len++;
-		base++;
+		str++;
 	}
 	return (len);
 }
 
-int	check_char(char *base)
+int	get_power(int base, int power)
+{
+	int	get_power;
+
+	get_power = 1;
+	while (power--)
+	{
+		get_power *= base;
+	}
+	return (get_power);
+}
+
+int	check_base(char *base)
 {
 	char	*check;
 
@@ -38,41 +50,62 @@ int	check_char(char *base)
 				return (0);
 			check++;
 		}
-		base++;
-	}
-	return (1);
+				base++;
+					}
+		return (1);
 }
 
-int	get_power(int	num, int	power)
+long long	mk_num(int base_len, char *str, char *base)
 {
-	int	n;
-
-	n = 1;
-	while (power--)
-		n *= num;
-	return (n);
-}
-
-int	check_num(int len, char *base, char num)
-{
-	while (len)
-	{
-		if (num == base[len])
-			break;
-		len--;
-	}
-	return (len);
-}
-
-int	ft_atoi_base(char	*str, char	*base)
-{
+	long long	num;
+	int			index;
 	int			power;
-	long long	n;
+	int			str_len;
 
-	power = get_base_len(base);
-	if (check_char(base) && power > 1)
+	str_len = 0;
+	while (str[str_len])
+		str_len++;
+	num = 0;
+	while (*str)
 	{
-		
+		index = 0;
+		while (base[index])
+		{
+			if (base[index] == str[str_len-1])
+			{
+				power = get_power(base_len, index);
+				num += index*power;
+				break;
+			}
+			index++;
+		}
+		str_len--;
+		str++;
 	}
-	return ((int)n);
+	return (num);
+}
+
+int	ft_atoi_base(char *str, char *base)
+{
+	int		base_len;
+	int		sign;
+	long long num;
+
+	base_len = get_len(base);
+	if (base_len < 2 && check_base(base) && str[0] == '\0')
+			return (0);
+	sign = 1;
+	while ((9 <= *str && *str <= 13) || *str == ' ')
+	{
+		str++;
+	}
+	while (*str == '+' || *str == '-')
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
+	num = mk_num(base_len, str, base);
+	num *= sign;
+	return ((int)num);
 }
