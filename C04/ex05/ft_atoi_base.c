@@ -6,22 +6,9 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 20:49:51 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/24 22:56:55 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/24 23:13:28 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int	get_len(char *str)
-{
-	int	len;
-
-	len = 0;
-	while (*str)
-	{
-		len++;
-		str++;
-	}
-	return (len);
-}
 
 long long	get_power(int base, int power)
 {
@@ -35,15 +22,15 @@ long long	get_power(int base, int power)
 	return (get_power);
 }
 
-int	check_valid(char *base, char *str)
+int	check_valid(char *base)
 {
 	char	*check;
-	int		i;
 
 	while (*base)
 	{
 		check = base + 1;
-		if (*base == '+' || *base == '-')
+		if (*base == '+' || *base == '-' || *base == ' '
+			|| (9 <= *base && *base <=13))
 			return (0);
 		while (*check)
 		{
@@ -53,20 +40,18 @@ int	check_valid(char *base, char *str)
 		}
 		base++;
 	}
-	while (*str)
-	{
-		i = 0;
-		while (base[i])
-		{
-			if (*str == base[i])
-				break ;
-			i++;
-		}
-		if (base[i] == '\0')
-			return (0);
-		str++;
-	}	
 	return (1);
+}
+
+int	check_num(char str, char *base)
+{
+	while (*base)
+	{
+		if (str == *base)
+			return (1);
+		base++;
+	}
+	return (0);
 }
 
 long long	mk_num(int base_len, char *str, char *base)
@@ -75,20 +60,16 @@ long long	mk_num(int base_len, char *str, char *base)
 	int			index;
 	long long	power;
 	int			str_len;
-	int			i;
 
 	str_len = 0;
 	while (str[str_len])
 		str_len++;
 	str_len--;
 	num = 0;
-	i = 0;
 	while (*str)
 	{
 		index = 0;
-		if (!('0' <= *str && *str <= '9'))
-			break ;
-		while (base[index])
+		while (check_num(*str, base) && base[index])
 		{
 			if (base[index] == *str)
 			{
@@ -110,8 +91,10 @@ int	ft_atoi_base(char *str, char *base)
 	int		sign;
 	long long num;
 
-	base_len = get_len(base);
-	if (base_len < 2 || !check_valid(base, str) || str[0] == '\0')
+	base_len = 0;
+	while (base[base_len])
+		base_len++;
+	if (base_len < 2 || !check_valid(base) || str[0] == '\0')
 			return (0);
 	sign = 1;
 	while ((9 <= *str && *str <= 13) || *str == ' ')
@@ -124,5 +107,7 @@ int	ft_atoi_base(char *str, char *base)
 	}
 	num = mk_num(base_len, str, base);
 	num *= sign;
+	if (num > 2147483647 || num < -2147483648)
+		return (0);
 	return ((int)num);
 }
