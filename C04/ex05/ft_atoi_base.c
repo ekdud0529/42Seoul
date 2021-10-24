@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 20:49:51 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/24 23:13:28 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/24 23:20:48 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,14 @@ long long	mk_num(int base_len, char *str, char *base)
 	while (*str)
 	{
 		index = 0;
+		if (!check_num(*str, base))
+			return (num);
 		while (check_num(*str, base) && base[index])
 		{
 			if (base[index] == *str)
 			{
 				power = get_power(base_len, str_len);
-				num += index*power;
+				num += (index*power);
 				break ;
 			}
 			index++;
