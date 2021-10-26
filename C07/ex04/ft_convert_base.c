@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 16:02:21 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/26 17:31:22 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/26 21:35:14 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,20 @@ char		*mk_arr(char *arr, int size, int sign);
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
 	int			idx;
-	long long 	num;
+	long long	num;
 	char		arr[33];
 	int			base_to_len;
 	int			sign;
 
 	sign = 1;
 	base_to_len = get_len(base_to);
-	if (!get_len(base_from) || !base_to_len 
+	if (!get_len(base_from) || !base_to_len
 		|| !check_valid(base_from) || !check_valid(base_to))
 		return (0);
 	num = ft_atoi_base(nbr, base_from);
 	idx = 0;
 	if (num == 0)
-		arr[idx++] = num;
+		arr[idx++] = base_to[num];
 	if (num < 0)
 	{
 		sign = -1;
@@ -61,7 +61,7 @@ char	*mk_arr(char *arr, int size, int sign)
 		arry[idx++] = arr[size];
 	}
 	arry[idx] = '\0';
-	return (arry);	
+	return (arry);
 }
 
 int	get_len(char *str)
