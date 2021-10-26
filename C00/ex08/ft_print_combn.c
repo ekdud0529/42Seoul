@@ -39,6 +39,8 @@ void	recursion(int	n, int	position, int start, int	end)
 	{
 		while (start < 10)
 		{
+			if (start == 10 - n && posirion == 0)
+				end = 0;
 			g_number[start] = start + '0';
 			front_putc(n - 1, start + '0', end);
 			start++;
