@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 16:08:41 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/26 17:05:44 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/26 22:46:59 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,5 @@ int	ft_atoi_base(char *str, char *base)
 	}
 	num = mk_num(base_len, str, base);
 	num *= sign;
-	if (num > 2147483647 || num < -2147483648)
-		return (0);
 	return ((int)num);
 }
