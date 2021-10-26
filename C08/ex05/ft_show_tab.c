@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 00:37:06 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/27 00:52:01 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/27 01:00:55 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	ft_show_tab(struct	s_stock_str	*par)
 		}
 		write(1, "\n", 1);
 		put_num(par[i].size);
+		j = 0;
 		while (par[i].copy[j])
 		{
 			write(1, &par[i].copy[j], 1);
