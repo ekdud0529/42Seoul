@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 00:20:25 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/27 00:43:38 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/27 00:59:50 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,6 @@ struct	s_stock_str	*ft_strs_to_tab(int ac, char **av)
 		arr[i].copy = str_cpy(av[i]);
 		i++;
 	}
+	arr[i] = 0;
 	return (arr);
 }
