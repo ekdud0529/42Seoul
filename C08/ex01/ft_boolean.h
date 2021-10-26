@@ -13,7 +13,7 @@
 #ifndef FT_BOOLEAN_H
 # define FT_BOOLEAN_H
 
-# define EVENP(nbr) (nbr % 2 == 0)
+# define EVENP(nbr) (nbr % 2)
 
 # define TRUE 1
 # define FALSE 0
