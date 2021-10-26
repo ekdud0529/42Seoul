@@ -6,16 +6,15 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 21:48:09 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/26 23:35:40 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/26 23:50:34 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 int		ch_charset(char c, char *charset);
 char	*mk_str(int start, int end, char *str);
-int	cnt_word(char *str, char *charset);
+int		cnt_word(char *str, char *charset);
 
 char	**ft_split(char *str, char *charset)
 {
@@ -26,16 +25,15 @@ char	**ft_split(char *str, char *charset)
 	int		len;
 
 	word_cnt = cnt_word(str, charset);
-	printf("%d\n", word_cnt);
 	arr = malloc (sizeof(char *) * (word_cnt + 1));
 	i = 0;
 	idx = 0;
 	while (str[i])
 	{
-		while (ch_charset(str[i], charset))
+		while (ch_charset(str[i], charset) && str[i])
 			i++;
 		len = i;
-		while (!ch_charset(str[i], charset))
+		while (!ch_charset(str[i], charset) && str[i])
 			i++;
 		if (len < i)
 		{
@@ -73,9 +71,9 @@ int	cnt_word(char *str, char *charset)
 	cnt = 0;
 	while (str[i])
 	{
-		while (ch_charset(str[i], charset))
+		while (ch_charset(str[i], charset) && str[i])
 			i++;
-		while (!ch_charset(str[i], charset))
+		while (!ch_charset(str[i], charset) && str[i])
 			i++;
 		cnt++;
 	}
@@ -84,11 +82,14 @@ int	cnt_word(char *str, char *charset)
 
 int	ch_charset(char c, char *charset)
 {
-	while (*charset)
+	int	i;
+
+	i = 0;
+	while (charset[i])
 	{
-		if (c  == *charset)
+		if (c == charset[i])
 			return (1);
-		charset++;
+		i++;
 	}
 	return (0);
 }
