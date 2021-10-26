@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 21:48:09 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/26 23:13:44 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/26 23:35:40 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 int		ch_charset(char c, char *charset);
 char	*mk_str(int start, int end, char *str);
 int	cnt_word(char *str, char *charset);
-int		ch_charset(char c, char *charset);
 
 char	**ft_split(char *str, char *charset)
 {
@@ -28,7 +27,7 @@ char	**ft_split(char *str, char *charset)
 
 	word_cnt = cnt_word(str, charset);
 	printf("%d\n", word_cnt);
-	arr = (char **) malloc (sizeof(char *) * (word_cnt + 1));
+	arr = malloc (sizeof(char *) * (word_cnt + 1));
 	i = 0;
 	idx = 0;
 	while (str[i])
@@ -38,7 +37,7 @@ char	**ft_split(char *str, char *charset)
 		len = i;
 		while (!ch_charset(str[i], charset))
 			i++;
-		if (len > i)
+		if (len < i)
 		{
 			arr[idx] = mk_str(len, i, str);
 			idx++;
@@ -54,14 +53,14 @@ char	*mk_str(int	start, int end, char *str)
 	int		i;
 
 	i = 0;
-	arr = (char *) malloc (sizeof(char) * (end - start +1));
+	arr = malloc (sizeof(char) * (end - start + 1));
 	while (start < end)
 	{
 		arr[i] = str[start];
 		start++;
 		i++;
 	}
-	arr[i] = '\0';
+	arr[i] = 0;
 	return (arr);
 }
 
