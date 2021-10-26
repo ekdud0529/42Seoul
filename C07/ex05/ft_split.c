@@ -6,13 +6,17 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 21:48:09 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/26 23:01:24 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/26 23:13:44 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 
-int	ch_charset(char c, char *charset);
+int		ch_charset(char c, char *charset);
+char	*mk_str(int start, int end, char *str);
+int	cnt_word(char *str, char *charset);
+int		ch_charset(char c, char *charset);
 
 char	**ft_split(char *str, char *charset)
 {
@@ -22,8 +26,8 @@ char	**ft_split(char *str, char *charset)
 	int		i;
 	int		len;
 
-	word_cnt = 0;
-	cnt_word(str, charset, &word_cnt);
+	word_cnt = cnt_word(str, charset);
+	printf("%d\n", word_cnt);
 	arr = (char **) malloc (sizeof(char *) * (word_cnt + 1));
 	i = 0;
 	idx = 0;
@@ -40,10 +44,11 @@ char	**ft_split(char *str, char *charset)
 			idx++;
 		}
 	}
+	arr[idx] = 0;
 	return (arr);
 }
 
-void	mk_str(int	start, int end, char *str)
+char	*mk_str(int	start, int end, char *str)
 {
 	char	*arr;
 	int		i;
@@ -56,19 +61,26 @@ void	mk_str(int	start, int end, char *str)
 		start++;
 		i++;
 	}
+	arr[i] = '\0';
 	return (arr);
 }
 
-void	cnt_word(char *str, char *charset, int *cnt)
+int	cnt_word(char *str, char *charset)
 {
+	int	i;
+	int	cnt;
+
+	i = 0;
+	cnt = 0;
 	while (str[i])
 	{
-		while (ch_charset(str[i], sharset))
+		while (ch_charset(str[i], charset))
 			i++;
 		while (!ch_charset(str[i], charset))
 			i++;
-		*cnt++;
+		cnt++;
 	}
+	return (cnt);
 }
 
 int	ch_charset(char c, char *charset)
