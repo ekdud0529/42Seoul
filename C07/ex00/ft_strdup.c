@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 12:05:28 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/26 12:13:05 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/27 15:14:25 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ char	*ft_strdup(char *src)
 	while (src[str_len])
 		str_len++;
 	str = (char *)malloc(sizeof(char) * (str_len + 1));
+	if (!str)
+		return (0);
 	while (i < str_len)
 	{
 		str[i] = src[i];
