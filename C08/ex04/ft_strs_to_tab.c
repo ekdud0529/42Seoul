@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 00:20:25 by daykim            #+#    #+#             */
-/*   Updated: 2021/10/27 00:59:50 by daykim           ###   ########.fr       */
+/*   Updated: 2021/10/27 13:58:07 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	str_len(char *str)
 	return (len);
 }
 
-char	*str_cpy(char *str)
+char	*str_dup(char *str)
 {
 	int		i;
 	char	*arr;
@@ -53,9 +53,9 @@ struct	s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	{
 		arr[i].size = str_len(av[i]);
 		arr[i].str = av[i];
-		arr[i].copy = str_cpy(av[i]);
+		arr[i].copy = str_dup(av[i]);
 		i++;
 	}
-	arr[i] = 0;
+	arr[i].str = 0;
 	return (arr);
 }
