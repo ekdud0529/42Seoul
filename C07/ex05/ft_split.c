@@ -25,7 +25,7 @@ char	**ft_split(char *str, char *charset)
 	int		len;
 
 	word_cnt = cnt_word(str, charset);
-	arr = malloc (sizeof(char *) * (word_cnt + 1));
+	arr = (char **)malloc (sizeof(char *) * (word_cnt + 1));
 	i = 0;
 	idx = 0;
 	while (str[i])
@@ -51,7 +51,7 @@ char	*mk_str(int	start, int end, char *str)
 	int		i;
 
 	i = 0;
-	arr = malloc (sizeof(char) * (end - start + 1));
+	arr = (char *)malloc (sizeof(char) * (end - start + 1));
 	while (start < end)
 	{
 		arr[i] = str[start];
