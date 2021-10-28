@@ -18,16 +18,15 @@ char	*ft_strcapitalize(char	*str)
 	src = str;
 	while (*str)
 	{
+		cmp = str - 1;
 		if ('a' <= *str && *str <= 'z')
 		{
-			cmp = str - 1;
 			if (!('a' <= *cmp && *cmp <= 'z') && !('A' <= *cmp && *cmp <= 'Z')
 				&& !('0' <= *cmp && *cmp <= '9'))
 				*str = *str - 32;
 		}
 		if ('A' <= *str && *str <= 'Z')
 		{
-			cmp = str - 1;
 			if (('a' <= *cmp && *cmp <= 'z') || ('A' <= *cmp && *cmp <= 'Z')
 				|| ('0' <= *cmp && *cmp <= '9'))
 				*str = *str + 32;
