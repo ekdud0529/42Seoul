@@ -13,23 +13,18 @@
 #include <unistd.h>
 void	ft_putstr_non_printable(char	*str)
 {
-	unsigned char	charhex;
+	unsigned char	*hex;
 	unsigned char	*strr;
 
-	hex = 0;
+	hex = "0123456789abcdef";
 	strr = (unsigned char *)str;
 	while (*strr)
 	{
 		if (*strr < 32 || *strr > 126)
 		{
 			write(1, "\\", 1);
-			hex = *strr / 16 + '0';
-			write(1, &hex, 1);
-			if (*strr % 16 > 9)
-				hex = (((*strr % 16) - 10) + 'a');
-			else
-				hex = *strr % 16 + '0';
-			write(1, &hex, 1);
+			write(1, hex[*strr / 16], 1);
+			write(1, hex[*strr % 16], 1);
 		}
 		else
 			write(1, strr, 1);
