@@ -6,19 +6,19 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 17:35:11 by daykim            #+#    #+#             */
-/*   Updated: 2021/11/18 17:35:11 by daykim           ###   ########.fr       */
+/*   Updated: 2021/11/18 17:52:32 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
-    if ('A' <= c && c <= 'Z')
-    {
-        return (1);
-    }
-    else if ('a' <= c && c <= 'z')
-    {
-        return (2);
-    }
-    return (0);
+	if ('A' <= c && c <= 'Z')
+	{
+		return (1);
+	}
+	else if ('a' <= c && c <= 'z')
+	{
+		return (2);
+	}
+	return (0);
 }
