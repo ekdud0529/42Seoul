@@ -1,0 +1,8 @@
+|Folder|Func Name|
+|---|---|
+|ex00|ft_strlen|
+|ex01|ft_putstr|
+|ex02|ft_putnbr|
+|ex03|ft_atoi|
+|ex04|ft_putnbr_base|
+|ex05|ft_atoi_base|
