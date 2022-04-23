@@ -1,0 +1,8 @@
+|Folder|Func Name|
+|---|---|
+|ex00|ft_strcmp|
+|ex01|ft_strncmp|
+|ex02|ft_strcat|
+|ex03|ft_strncat|
+|ex04|ft_strstr|
+|ex05|ft_strlcat|
