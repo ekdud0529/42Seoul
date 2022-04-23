@@ -1,0 +1,14 @@
+|Folder|Func Name|
+|---|---|
+|ex00|ft_strcpy|
+|ex01|ft_strncpy|
+|ex02|ft_str_is_alpha|
+|ex03|ft_str_is_numeric|
+|ex04|ft_str_is_lowercase|
+|ex05|ft_str_is_uppercase|
+|ex06|ft_str_is_printable|
+|ex07|ft_strupcase|
+|ex08|ft_strlowcase|
+|ex09|ft_strcapitalize|
+|ex10|ft_strlcpy|
+|ex11|ft_putstr_non_printable|
