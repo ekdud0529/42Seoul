@@ -178,7 +178,7 @@ CentOS는 기본 방화벽 대신 UFW를 사용하여야 합니다.
 
 이것은 스크립트의 동작 예시입니다 :
 
-![b2br2](b2br_2.png)
+![b2br2](https://user-images.githubusercontent.com/45174177/171101665-715baec2-1214-4e31-8794-32765d42f4c5.png)
 
 <br>
 
@@ -186,8 +186,8 @@ CentOS는 기본 방화벽 대신 UFW를 사용하여야 합니다.
 
 `CentOS`
 
-![centos](b2br_3_centos.png)
+![centos](https://user-images.githubusercontent.com/45174177/171101830-1ac06fd0-b379-4c23-a421-d9e03c70ec48.png)
 
 `Debian`
 
-![debian](b2br_3_debian.png)
+![debian](https://user-images.githubusercontent.com/45174177/171101899-764e1424-85ab-4737-b2ce-2c878d55fea8.png)
